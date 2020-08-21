@@ -15,7 +15,7 @@
         {% for item in items %}
             <tr>
             {% if item.done %}
-                <td><del>{{item.done}}</del></td>
+                <td><del>{{item.name}}</del></td>
             {% else %}
                 <td>{{item.name}}</td>
             {% endif %}
