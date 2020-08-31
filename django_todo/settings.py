@@ -14,9 +14,6 @@ from pathlib import Path
 import os
 import dj_database_url
 
-if os.path.exists("env.py"):
-    import env
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
@@ -30,7 +27,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["django-todo-list1.herokuapp.com"]
+ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 
 # Application definition
@@ -89,7 +86,7 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.parse("postgres://zkivcosbqnqxyc:bb119bce95fa5069b5f2e6337a1fcac1e1edce555f7515bf27f5b223ea44c1cb@ec2-18-203-62-227.eu-west-1.compute.amazonaws.com:5432/d6eabmsjvb7j90")
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 
