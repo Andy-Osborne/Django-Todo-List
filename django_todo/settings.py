@@ -79,7 +79,6 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-db = os.environ.get("DATABASE")
 
 # DATABASES = {
 #     'default': {
@@ -90,7 +89,7 @@ db = os.environ.get("DATABASE")
 
 
 DATABASES = {
-    'default': dj_database_url.parse(db)
+    'default': dj_database_url.parse("postgres://zkivcosbqnqxyc:bb119bce95fa5069b5f2e6337a1fcac1e1edce555f7515bf27f5b223ea44c1cb@ec2-18-203-62-227.eu-west-1.compute.amazonaws.com:5432/d6eabmsjvb7j90")
 }
 
 
